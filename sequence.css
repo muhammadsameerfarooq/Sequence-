@@ -1,0 +1,205 @@
+body {
+    background-image: url("sequence7.jpg");
+}
+
+
+.background-sequence {
+    position: relative;
+
+}
+
+.background-sequence::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    color: lightgray;
+    font-size: 50px;
+    line-height: 70px;
+    margin-top: -1.3rem;
+}
+
+.boxred {
+    width: 100px;
+    height: 70px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 35px;
+    background-color: white;
+    border: none;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease-in-out;
+    color: red;
+}
+
+.boxblack {
+    width: 100px;
+    height: 70px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 35px;
+    background-color: white;
+    border: none;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease-in-out;
+    color: black;
+}
+
+.boxred:hover {
+    background-color: lightgray;
+}
+
+.boxblack:hover {
+    background-color: lightgray;
+}
+
+.card:hover {
+    background-color: lightgray;
+}
+
+.box:hover {
+    background-color: lightgray;
+}
+
+.box {
+    width: 100px;
+    height: 70px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 35px;
+    background-color: white;
+    border: none;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease-in-out;
+
+
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.red {
+    color: red;
+}
+
+.blue {
+    background-color: lightblue;
+}
+
+.green {
+    background-color: lightgreen;
+}
+
+.changecolor {
+    background-color: red;
+    color: white;
+}
+
+.card {
+    display: inline-block;
+    width: 80px;
+    height: 120px;
+    margin: 10px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 120px;
+    vertical-align: top;
+    cursor: pointer;
+}
+
+.red {
+    color: red;
+}
+
+.black {
+    color: black;
+}
+
+#deck {
+    display: none;
+}
+
+.selected {
+    background-color: lightsalmon;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#player {
+    color: #ff6347;
+}
+
+#modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+#modal h2 {
+    color: white;
+}
+
+#start-game-btn {
+    padding: 10px 20px;
+    background-color: violet;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#Player1cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    margin-top: 50px;
+}
+
+#Player1cards .card {
+    margin-right: 10px;
+}
+
+#Player2cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    margin-top: 50px;
+}
+
+#Player2cards .card {
+    margin-right: 10px;
+}
+
+.storedcards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    margin-top: 50px;
+}

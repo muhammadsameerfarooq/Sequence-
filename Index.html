@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sequence Game</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.all.min.js"></script>
+
+    <link rel="stylesheet" href="./sequence.css">
+</head>
+
+<body>
+    <div class="background-sequence">
+        <p></p>
+    </div>
+    <div id="game-container">
+    </div>
+    <h1>Player <span id="player">1</span> Turn</h1>
+
+    <p id="message"></p>
+    <!-- <div id="modal">
+        <h2>Do you want to start the game?</h2>
+        <button id="start-game-btn">Start Game</button>
+    </div> -->
+    <div id="Player1cards">
+
+    </div>
+    <div id="Player2cards">
+
+    </div>
+
+    <div class="container">
+        <div>
+            <div class="box boxclass" id="box_1_1" onclick="make_a_turn(1,1)"></div>
+            <div class="boxblack boxclass" id="box_1_2" onclick="make_a_turn(1,2)">A &clubs;</div>
+            <div class="boxblack boxclass" id="box_1_3" onclick="make_a_turn(1,3)">K &clubs;</div>
+            <div type="text" class="boxblack boxclass" id="box_1_4" onclick="make_a_turn(1,4)">Q &clubs;</div>
+            <div type="text" class="boxblack boxclass" id="box_1_5" onclick="make_a_turn(1,5)">10 &clubs;</div>
+            <div type="text" class="boxblack boxclass" id="box_1_6" onclick="make_a_turn(1,6)">9 &clubs;</div>
+            <div type="text" class="boxblack boxclass" id="box_1_7" onclick="make_a_turn(1,7)">8 &clubs;</div>
+            <div type="text" class="boxblack boxclass" id="box_1_8" onclick="make_a_turn(1,8)">7 &clubs;</div>
+            <div type="text" class="boxblack boxclass" id="box_1_9" onclick="make_a_turn(1,9)">6 &clubs;</div>
+            <div type="text" class="box boxclass" id="box_1_10" onclick="make_a_turn(1,10)"></div>
+        </div>
+
+        <div>
+            <div type="text" class="boxred boxclass" id="box_2_1" onclick="make_a_turn(2,1)">A &diams;</div>
+            <div type="text" class="boxblack boxclass" id="box_2_2" onclick="make_a_turn(2,2)">7 &spades;</div>
+            <div type="text" class="boxblack boxclass" id="box_2_3" onclick="make_a_turn(2,3)">8 &spades;</div>
+            <div type="text" class="boxblack boxclass" id="box_2_4" onclick="make_a_turn(2,4)">9 &spades;</div>
+            <div type="text" class="boxblack boxclass" id="box_2_5" onclick="make_a_turn(2,5)">10 &spades;</div>
+            <div type="text" class="boxblack boxclass" id="box_2_6" onclick="make_a_turn(2,6)">Q &spades;</div>
+            <div type="text" class="boxblack boxclass" id="box_2_7" onclick="make_a_turn(2,7)">K &spades;</div>
+            <div type="text" class="boxblack boxclass" id="box_2_8" onclick="make_a_turn(2,8)">A &spades;</div>
+            <div type="text" class="boxblack boxclass" id="box_2_9" onclick="make_a_turn(2,9)">5 &clubs;</div>
+            <div type="text" class="boxblack boxclass" id="box_2_10" onclick="make_a_turn(2,10)">2 &spades;</div>
+        </div>
+        <div>
+            <div type="text" class="boxred boxclass" id="box_3_1" onclick="make_a_turn(3,1)">K &diams;</div>
+            <div type="text" class="boxblack boxclass" id="box_3_2" onclick="make_a_turn(3,2)">6 &spades;</div>
+            <div type="text" class="boxblack boxclass" id="box_3_3" onclick="make_a_turn(3,3)">10 &clubs;</div>
+            <div type="text" class="boxblack boxclass" id="box_3_4" onclick="make_a_turn(3,4)">9 &clubs;</div>
+            <div type="text" class="boxblack boxclass" id="box_3_5" onclick="make_a_turn(3,5)">8 &clubs;</div>
+            <div type="text" class="boxblack boxclass" id="box_3_6" onclick="make_a_turn(3,6)">7 &clubs;</div>
+            <div type="text" class="boxblack boxclass" id="box_3_7" onclick="make_a_turn(3,7)">6 &clubs;</div>
+            <div type="text" class="boxred boxclass" id="box_3_8" onclick="make_a_turn(3,8)">2 &diams;</div>
+            <div type="text" class="boxblack boxclass" id="box_3_9" onclick="make_a_turn(3,9)">4 &clubs;</div>
+            <div type="text" class="boxblack boxclass" id="box_3_10" onclick="make_a_turn(3,10)">3 &spades;</div>
+        </div>
+        <div>
+            <div type="text" class="boxred boxclass" id="box_4_1" onclick="make_a_turn(4,1)">Q &diams;</div>
+            <div type="text" class="boxblack boxclass" id="box_4_2" onclick="make_a_turn(4,2)">5 &spades;</div>
+            <div type="text" class="boxblack boxclass" id="box_4_3" onclick="make_a_turn(4,3)">Q &clubs;</div>
+            <div type="text" class="boxred boxclass" id="box_4_4" onclick="make_a_turn(4,4)">8 &hearts;</div>
+            <div type="text" class="boxred boxclass" id="box_4_5" onclick="make_a_turn(4,5)">7 &hearts;</div>
+            <div type="text" class="boxred boxclass" id="box_4_6" onclick="make_a_turn(4,6)">6 &hearts;</div>
+            <div type="text" class="boxblack boxclass" id="box_4_7" onclick="make_a_turn(4,7)">5 &clubs;</div>
+            <div type="text" class="boxred boxclass" id="box_4_8" onclick="make_a_turn(4,8)">3 &diams;</div>
+            <div type="text" class="boxblack boxclass" id="box_4_9" onclick="make_a_turn(4,9)">3 &clubs;</div>
+            <div type="text" class="boxblack boxclass" id="box_4_10" onclick="make_a_turn(4,10)">4 &spades;</div>
+        </div>
+        <div>
+            <div type="text" class="boxred boxclass" id="box_5_1" onclick="make_a_turn(5,1)">10 &diams;</div>
+            <div type="text" class="boxblack boxclass" id="box_5_2" onclick="make_a_turn(5,2)">4 &spades;</div>
+            <div type="text" class="boxblack boxclass" id="box_5_3" onclick="make_a_turn(5,3)">K &clubs;</div>
+            <div type="text" class="boxred boxclass" id="box_5_4" onclick="make_a_turn(5,4)">9 &hearts;</div>
+            <div type="text" class="boxred boxclass" id="box_5_5" onclick="make_a_turn(5,5)">2 &hearts;</div>
+            <div type="text" class="boxred boxclass" id="box_5_6" onclick="make_a_turn(5,6)">5 &hearts;</div>
+            <div type="text" class="boxblack boxclass" id="box_5_7" onclick="make_a_turn(5,7)">4 &clubs;</div>
+            <div type="text" class="boxred boxclass" id="box_5_8" onclick="make_a_turn(5,8)">4 &diams;</div>
+            <div type="text" class="boxblack boxclass" id="box_5_9" onclick="make_a_turn(5,9)">2 &clubs;</div>
+            <div type="text" class="boxblack boxclass" id="box_5_10" onclick="make_a_turn(5,10)">5 &spades;</div>
+        </div>
+        <div>
+            <div type="text" class="boxred boxclass" id="box_6_1" onclick="make_a_turn(6,1)">9 &diams;</div>
+            <div type="text" class="boxblack boxclass" id="box_6_2" onclick="make_a_turn(6,2)">3 &spades;</div>
+            <div type="text" class="boxblack boxclass" id="box_6_3" onclick="make_a_turn(6,3)">A &clubs;</div>
+            <div type="text" class="boxred boxclass" id="box_6_4" onclick="make_a_turn(6,4)">10 &hearts;</div>
+            <div type="text" class="boxred boxclass" id="box_6_5" onclick="make_a_turn(6,5)">3 &hearts;</div>
+            <div type="text" class="boxred boxclass" id="box_6_6" onclick="make_a_turn(6,6)">4 &hearts;</div>
+            <div type="text" class="boxblack boxclass" id="box_6_7" onclick="make_a_turn(6,7)">3 &clubs;</div>
+            <div type="text" class="boxred boxclass" id="box_6_8" onclick="make_a_turn(6,8)">5 &diams;</div>
+            <div type="text" class="boxred boxclass" id="box_6_9" onclick="make_a_turn(6,9)">A &hearts;</div>
+            <div type="text" class="boxblack boxclass" id="box_6_10" onclick="make_a_turn(6,10)">6 &spades;</div>
+        </div>
+        <div>
+            <div type="text" class="boxred boxclass" id="box_7_1" onclick="make_a_turn(7,1)">8 &diams;</div>
+            <div type="text" class="boxblack boxclass" id="box_7_2" onclick="make_a_turn(7,2)">2 &spades;</div>
+            <div type="text" class="boxred boxclass" id="box_7_3" onclick="make_a_turn(7,3)">A &diams;</div>
+            <div type="text" class="boxred boxclass" id="box_7_4" onclick="make_a_turn(7,4)">Q &hearts;</div>
+            <div type="text" class="boxred boxclass" id="box_7_5" onclick="make_a_turn(7,5)">K &hearts;</div>
+            <div type="text" class="boxred boxclass" id="box_7_6" onclick="make_a_turn(7,6)">A &hearts;</div>
+            <div type="text" class="boxblack boxclass" id="box_7_7" onclick="make_a_turn(7,7)">2 &clubs;</div>
+            <div type="text" class="boxred boxclass" id="box_7_8" onclick="make_a_turn(7,8)">6 &diams;</div>
+            <div type="text" class="boxred boxclass" id="box_7_9" onclick="make_a_turn(7,9)">K &hearts;</div>
+            <div type="text" class="boxblack boxclass" id="box_7_10" onclick="make_a_turn(7,10)">7 &spades;</div>
+        </div>
+        <div>
+            <div type="text" class="boxred boxclass" id="box_8_1" onclick="make_a_turn(8,1)">7 &diams;</div>
+            <div type="text" class="boxred boxclass" id="box_8_2" onclick="make_a_turn(8,2)">2 &hearts;</div>
+            <div type="text" class="boxred boxclass" id="box_8_3" onclick="make_a_turn(8,3)">K &diams;</div>
+            <div type="text" class="boxred boxclass" id="box_8_4" onclick="make_a_turn(8,4)">Q &diams;</div>
+            <div type="text" class="boxred boxclass" id="box_8_5" onclick="make_a_turn(8,5)">10 &diams;</div>
+            <div type="text" class="boxred boxclass" id="box_8_6" onclick="make_a_turn(8,6)">9 &diams;</div>
+            <div type="text" class="boxred boxclass" id="box_8_7" onclick="make_a_turn(8,7)">8 &diams;</div>
+            <div type="text" class="boxred boxclass" id="box_8_8" onclick="make_a_turn(8,8)">7 &diams;</div>
+            <div type="text" class="boxred boxclass" id="box_8_9" onclick="make_a_turn(8,9)">Q &hearts;</div>
+            <div type="text" class="boxblack boxclass" id="box_8_10" onclick="make_a_turn(8,10)">8 &spades;</div>
+        </div>
+        <div>
+            <div type="text" class="boxred boxclass" id="box_9_1" onclick="make_a_turn(9,1)">6 &diams;</div>
+            <div type="text" class="boxred boxclass" id="box_9_2" onclick="make_a_turn(9,2)">3 &hearts;</div>
+            <div type="text" class="boxred boxclass" id="box_9_3" onclick="make_a_turn(9,3)">4 &hearts;</div>
+            <div type="text" class="boxred boxclass" id="box_9_4" onclick="make_a_turn(9,4)">5 &hearts;</div>
+            <div type="text" class="boxred boxclass" id="box_9_5" onclick="make_a_turn(9,5)">6 &hearts;</div>
+            <div type="text" class="boxred boxclass" id="box_9_6" onclick="make_a_turn(9,6)">7 &hearts;</div>
+            <div type="text" class="boxred boxclass" id="box_9_7" onclick="make_a_turn(9,7)">8 &hearts;</div>
+            <div type="text" class="boxred boxclass" id="box_9_8" onclick="make_a_turn(9,8)">9 &hearts;</div>
+            <div type="text" class="boxred boxclass" id="box_9_9" onclick="make_a_turn(9,9)">10 &hearts;</div>
+            <div type="text" class="boxblack boxclass" id="box_9_10" onclick="make_a_turn(9,10)">9 &spades;</div>
+        </div>
+        <div>
+            <div type="text" class="box boxclass" id="box_10_1" onclick="make_a_turn(10,1)"></div>
+            <div type="text" class="boxred boxclass" id="box_10_2" onclick="make_a_turn(10,2)">5 &diams; </div>
+            <div type="text" class="boxred boxclass" id="box_10_3" onclick="make_a_turn(10,3)">4 &diams;</div>
+            <div type="text" class="boxred boxclass" id="box_10_4" onclick="make_a_turn(10,4)">3 &diams;</div>
+            <div type="text" class="boxred boxclass" id="box_10_5" onclick="make_a_turn(10,5)">2 &diams;</div>
+            <div type="text" class="boxblack boxclass" id="box_10_6" onclick="make_a_turn(10,6)">A &spades;</div>
+            <div type="text" class="boxblack boxclass" id="box_10_7" onclick="make_a_turn(10,7)">K &spades;</div>
+            <div type="text" class="boxblack boxclass" id="box_10_8" onclick="make_a_turn(10,8)">Q &spades;</div>
+            <div type="text" class="boxblack boxclass" id="box_10_9" onclick="make_a_turn(10,9)">10 &spades;</div>
+            <div type="text" class="box boxclass" id="box_10_10" onclick="make_a_turn(10,10)"></div>
+        </div>
+    </div>
+
+
+    <script src="./game.js"></script>
+    <div id="deck"></div>
+    <script src="./script.js" type="module"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCw5BUA4alwQ6MZyj9NxzTjPLQ4YPkeR54",
+            authDomain: "sequence-game-12b72.firebaseapp.com",
+            projectId: "sequence-game-12b72",
+            storageBucket: "sequence-game-12b72.appspot.com",
+            messagingSenderId: "995246503908",
+            appId: "1:995246503908:web:805d513b1002394345b9f1"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+    </script>
+
+    <!-- <script src="./script.js" type="module"></script> -->
+    <script src="./firebase.js" type="module"></script>
+</body>
+
+</html>
